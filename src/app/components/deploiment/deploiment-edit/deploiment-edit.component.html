@@ -1,0 +1,88 @@
+<div class="container main">
+    <div class="row">
+        <div class="col-sm">
+            <div class="card">
+                <div class="card-body">
+                    <button class="btn btn-success boutton" data-toggle="collapse" data-target="#collapseOne" aria-controls="collapseOne" (click)="isCollapsedOne= !isCollapsedOne">
+                                Creation Gedi
+                    </button>
+                    <div class="formulaire">
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion" [ngClass]="{'show':!isCollapsedOne}">
+                            <div class="card-body">
+                                <div class="groupRadio">
+                                    <div *ngFor="let value of inputList" class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" [value]="value" (change)="handleInputChange(displayParameter)" name="optradio"
+                                             [(ngModel)]="displayParameter">{{value}}
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="power">Contexte :</label>
+                                    <select class="form-control" id="contexte" [disabled]="contexteDisabled" [(ngModel)]="selectedContexte" (change)="handleContexteChange(selectedContexte)" required>
+                                                <option [ngValue]="placeholder" disabled selected hidden>Select one contexte</option>
+                                                <option *ngFor="let item of contextList" [ngValue]="item">{{item}}</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="power">Brique :</label>
+                                    <select class="form-control" id="brique" [disabled]="briqueDisabled" [(ngModel)]="selectedbrique" (change)="handleBriqueChange(selectedbrique)" required>
+                                                <option [ngValue]="placeholder" disabled selected hidden> Select one brique</option>
+                                                <option *ngFor="let item of briqueList" [ngValue]="item">{{item}}</option>
+                                        </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="power">Composant :</label>
+                                    <select class="form-control" id="composant" [disabled]="composantDisabled" [(ngModel)]="selectedComposant" (change)="handleComposantChange(selectedComposant)" required>
+                                                <option [ngValue]="placeholder" disabled selected hidden> Select one composant</option>
+                                                <option *ngFor="let item of composantList" [ngValue]="item">{{item}}</option>
+                                        </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="power">Version :</label>
+                                    <select class="form-control" id="version" [disabled]="versionDisabled" [(ngModel)]="selectedVersion" (change)="handleVersionChange(selectedVersion)" required>
+                                                <option [ngValue]="placeholder" disabled selected hidden> Select one version</option>
+                                                <option *ngFor="let item of versionList" [value]="item">{{item}}</option>
+                                        </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-success boutton" data-toggle="collapse" data-target="#collapseOne" aria-controls="isCollapsedTwo" (click)="isCollapsedTwo= !isCollapsedTwo">
+                            Recapitulatif
+                    </button>
+                    <div class="formulaire">
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion" [ngClass]="{'show':!isCollapsedTwo}">
+                            <div class="card-body">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Contexte</th>
+                                            <th>Description</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let desc of description">
+
+                                            <td>{{ desc.contexte }}</td>
+                                            <td> {{ desc.description }}</td>
+                                            <td>
+                                                <button class="btn btn-primary"> Show details</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-success boutton" style="float: right">Create Gedi</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
