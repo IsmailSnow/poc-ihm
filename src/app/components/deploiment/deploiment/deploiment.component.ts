@@ -7,12 +7,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeploimentComponent implements OnInit {
 
-  coinwallet: string[] = ['wallet1', 'wallet2'];
-  selectedwallet = this.coinwallet[0];
+  public isDeploimentUR = true;
+  public isDeploimentPRC = false;
+  public isDeploimentSOLAR = false;
+
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  handleUR() {
+    this.isDeploimentUR = true;
+    this.isDeploimentSOLAR = false;
+    this.isDeploimentPRC = false;
+  }
+
+  handlePRC() {
+    this.isDeploimentUR = false;
+    this.isDeploimentSOLAR = false;
+    this.isDeploimentPRC = true;
+  }
+
+  handleSOLAR() {
+    this.isDeploimentUR = false;
+    this.isDeploimentSOLAR = true;
+    this.isDeploimentPRC = false;
   }
 
 

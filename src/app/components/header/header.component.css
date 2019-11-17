@@ -1,0 +1,5 @@
+.brand {
+    left: 50%;
+    /* 50% of your logo width */
+    display: inline-block;
+}
